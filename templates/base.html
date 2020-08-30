@@ -40,7 +40,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'post_new' %}">+ New Blog Post</a>
                     </li>
+
                 </ul>
+
+                {% if user.is_authenticated %}
+                <p>Hi {{user.username}} </p>
+
+                <p><a class="nav-link" href="{% url 'logout' %}"> Log out</a></p>
+                {% else %}
+                <p>You are not Logged in !</p>
+                <p> <a class="nav-link" href="{% url 'login' %}"> Log in</a></p>
+                <p> <a class="nav-link" href="{% url 'signup' %}">Sign up</a></p>
+
+
+                {% endif %}
+
             </div>
         </div>
 
